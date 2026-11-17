@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LogicLords | Automata Simulator</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-icon">L</span>
+            <span>LogicLords</span>
+        </div>
+
+        <nav>
+            <a href="#about">About DFA</a>
+            <a href="#configuration">Configuration</a>
+            <a href="#visualization">Visualization</a>
+            <a href="#simulator">Simulator</a>
+        </nav>
+
+    </header>
+    <section class="section" id="testcases">
+    <h2>Test Cases (Expected vs Actual)</h2>
+    <p>Add multiple strings with the expected result and compare them with the DFA output.</p>
+    <div class="test-container">
+        <div class="form-group">
+            <label for="tcInput">Test String (empty = ε)</label>
+            <input type="text" id="tcInput" placeholder="e.g. 0110">
+        </div>
+        <div class="form-group">
+            <label for="tcExpected">Expected</label>
+            <select id="tcExpected">
+                <option value="accept">Accept</option>
+                <option value="reject">Reject</option>
+            </select>
+        </div>
+        <div class="button-group">
+            <button id="addTcBtn" class="primary-btn">Add</button>
+            <button id="runAllBtn" class="secondary-btn">Run All</button>
+        </div>
+    </div>
+    <div id="tcResults"></div>
+</section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+
+            <span class="tag">
+                AUTOMATA THEORY & COMPUTABILITY
+            </span>
+
+            <h1>DFA String Processing Visualizer</h1>
+
+            <p>
+                Build your own Deterministic Finite Automaton,
+                test input strings and visualize every state
+                transition step by step.
+            </p>
+
+            <a href="#configuration" class="primary-btn">
+                Start Simulation →
+            </a>
+
+        </section>
+
+
+        <!-- ABOUT DFA SECTION -->
+        <section class="section" id="about">
+
+            <h2>What is DFA?</h2>
+
+            <p>
+                A Deterministic Finite Automaton (DFA) is a
+                mathematical model used to recognize regular
+                languages.
+
+                For every state and input symbol, there must
+                be exactly one defined transition.
+            </p>
+
+
+            <!-- DFA COMPONENTS -->
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <h3>Q</h3>
+                    <p>Finite set of states</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Σ</h3>
+                    <p>Input alphabet</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>δ</h3>
+                    <p>Transition function</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>F</h3>
+                    <p>Set of final states</p>
+                </div>
+
+            </div>
+
+
+            <!-- DFA MATHEMATICAL DEFINITION -->
+            <div class="condition-box">
+
+                <h3>Mathematical Definition</h3>
+
+                <p>
+                    A DFA is represented by a five-tuple:
+                </p>
+
+                <p>
+                    <strong>M = (Q, Σ, δ, q₀, F)</strong>
+                </p>
+
+            </div>
+
+
+            <!-- DFA CONDITIONS -->
+            <div class="condition-box">
+
+                <h3>DFA Conditions</h3>
+
+                <ul>
+
+                    <li>
+                        There must be a finite number of states.
+                    </li>
+
+                    <li>
+                        There must be exactly one initial state.
+                    </li>
+
+                    <li>
+                        Every state must have exactly one
+                        transition for each input symbol.
+                    </li>
+
+                    <li>
+                        Final states must be a subset of all states.
+                    </li>
+
+                    <li>
+                        A string is accepted if processing ends
+                        in a final state.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- AUTOMATON CONFIGURATION -->
+        <section class="section" id="configuration">
+
+            <h2>Automaton Configuration</h2>
+
+            <p>
+                Define your own DFA model by entering its
+                states, alphabet and final states.
+            </p>
+
+
+            <div class="config-grid">
+
+
+                <!-- STATES -->
+                <div class="form-group">
+
+                    <label for="states">
+                        States
+                    </label>
+
+                    <input
+                        type="text"
+                        id="states"
+                        placeholder="q0, q1, q2"
+                    >
+
+                </div>
+
+
+
+                <!-- ALPHABET -->
+                <div class="form-group">
+
+                    <label for="alphabet">
+                        Input Alphabet
+                    </label>
+
+                    <input
+                        type="text"
+                        id="alphabet"
+                        placeholder="0, 1"
+                    >
+
+                </div>
+
+
+
+                <!-- INITIAL STATE -->
+                <div class="form-group">
+
+                    <label for="startState">
+                        Initial State
+                    </label>
+
+                    <select id="startState">
+
+                        <option value="">
+                            Select start state
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- FINAL STATES -->
+                <div class="form-group">
+
+                    <label for="finalStates">
+                        Final States
+                    </label>
+
+                    <input
+                        type="text"
+                        id="finalStates"
+                        placeholder="q2"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GENERATE BUTTON -->
+            <button id="generateBtn" class="primary-btn">
+
+                Generate Transition Table
+
+            </button>
+
+
+            <!-- TRANSITION TABLE -->
+            <div id="transitionSection"></div>
+
+        </section>
+
+
+
+        <!-- AUTOMATON VISUALIZATION -->
+        <section class="section" id="visualization">
+
+            <h2>State Diagram</h2>
+
+            <p>
+                Visual representation of your DFA will
+                appear here after configuration.
+            </p>
+
+            <div id="diagram">
+
+                <div class="empty-state">
+
+                    Configure your automaton to see
+                    its state diagram.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STRING TESTING AND SIMULATION -->
+        <section class="section" id="simulator">
+
+            <h2>String Testing & Simulation</h2>
+
+            <p>
+                Enter an input string to check whether
+                it is accepted or rejected by your DFA.
+            </p>
+
+
+            <div class="test-container">
+
+
+                <div class="form-group">
+
+                    <label for="inputString">
+                        Input String
+                    </label>
+
+                    <input
+                        type="text"
+                        id="inputString"
+                        placeholder="Example: 1010"
+                    >
+
+                </div>
+
+
+                <div class="button-group">
+
+                    <button
+                        id="testBtn"
+                        class="primary-btn"
+                    >
+                        Test String
+                    </button>
+
+
+                    <button
+                        id="resetBtn"
+                        class="secondary-btn"
+                    >
+                        Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIMULATION STEPS -->
+            <div id="simulationSteps"></div>
+
+
+            <!-- FINAL RESULT -->
+            <div id="result"></div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            Automata Simulator | DFA String Processing Visualizer
+        </p>
+
+        <p>
+            Developed by LogicLords
+        </p>
+
+        <p>
+            Automata Theory & Computability - CSET302
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT FILE -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+

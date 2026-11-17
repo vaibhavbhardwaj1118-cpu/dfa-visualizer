@@ -1,0 +1,486 @@
+
+/* ==============================
+   1. GLOBAL STYLING
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   2. HEADER
+================================= */
+
+.header {
+    background: #142b4a;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    background: #3b82f6;
+    padding: 5px 13px;
+    border-radius: 8px;
+    font-size: 23px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+
+/* ==============================
+   3. MAIN CONTAINER
+================================= */
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* ==============================
+   4. HERO SECTION
+================================= */
+
+.hero {
+    background: linear-gradient(135deg, #142b4a, #2563a6);
+    color: white;
+    text-align: center;
+    padding: 85px 25px;
+    margin-top: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(20,43,74,0.15);
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #dbeafe;
+    font-size: 16px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px 24px;
+    border-radius: 8px;
+    margin-top: 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   5. GENERAL SECTIONS
+================================= */
+
+.section {
+    background: white;
+    padding: 35px;
+    margin: 30px 0;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.section h2 {
+    color: #142b4a;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.section > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   6. DFA INFORMATION CARDS
+================================= */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.info-card {
+    background: #eff6ff;
+    padding: 22px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #dbeafe;
+}
+
+.info-card h3 {
+    color: #2563eb;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.info-card p {
+    color: #475569;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   7. DFA CONDITIONS
+================================= */
+
+.condition-box {
+    background: #f8fafc;
+    padding: 22px;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.condition-box h3 {
+    color: #142b4a;
+    margin-bottom: 12px;
+}
+
+.condition-box ul {
+    padding-left: 22px;
+    color: #475569;
+}
+
+.condition-box li {
+    margin: 7px 0;
+}
+
+
+/* ==============================
+   8. CONFIGURATION FORM
+================================= */
+
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #334155;
+}
+
+.form-group input,
+.form-group select {
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1e293b;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+
+
+/* ==============================
+   9. TABLE AND VISUALIZATION
+================================= */
+
+#transitionSection {
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+#diagram {
+    min-height: 220px;
+    padding: 25px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.empty-state {
+    text-align: center;
+    color: #94a3b8;
+    padding: 55px 10px;
+}
+
+
+/* ==============================
+   10. STRING TESTING
+================================= */
+
+.test-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.test-container .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.secondary-btn {
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 22px;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
+}
+
+#simulationSteps,
+#result {
+    margin-top: 20px;
+}
+
+
+/* ==============================
+   11. FOOTER
+================================= */
+
+.footer {
+    background: #142b4a;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   12. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 22px;
+    }
+}
+
+/* =================================
+   ANIMATED DFA STATES
+================================= */
+
+.dfa-state {
+    transition:
+        fill 0.3s ease,
+        stroke 0.3s ease,
+        filter 0.3s ease,
+        transform 0.3s ease;
+}
+
+.dfa-state.active-state {
+    fill: #fef08a;
+    stroke: #eab308;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 9px rgba(234,179,8,0.7));
+}
+
+
+/* Simulation table */
+
+.transition-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+}
+
+.transition-table th {
+    background: #142b4a;
+    color: white;
+    padding: 13px;
+    text-align: left;
+}
+
+.transition-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.transition-table tr:nth-child(even) {
+    background: #f1f5f9;
+}
+
+.animated-row {
+    animation: rowAppear 0.4s ease;
+}
+
+@keyframes rowAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Result styling */
+
+.result-accepted {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.result-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.result-accepted p,
+.result-rejected p {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+#testBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.dfa-edge { fill: none; stroke: #475569; stroke-width: 2; transition: stroke 0.3s; }
+.dfa-edge.active-edge { stroke: #eab308; stroke-width: 4; }
+.edge-label { font-size: 15px; font-weight: 700; fill: #1e293b; paint-order: stroke; stroke: #f8fafc; stroke-width: 4px; }
+.node-label { font-size: 16px; font-weight: 700; fill: #142b4a; pointer-events: none; }
